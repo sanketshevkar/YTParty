@@ -2,6 +2,7 @@
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
+
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -52,23 +53,32 @@ function pauseVideo() {
   }
 
 
+  // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyBkOQWzjmNV7cyCUWuxL_roHrwQu45GMgc",
-    authDomain: "ytparty-52b1f.firebaseapp.com",
-    databaseURL: "https://ytparty-52b1f.firebaseio.com",
-    projectId: "ytparty-52b1f",
-    storageBucket: "ytparty-52b1f.appspot.com",
-    messagingSenderId: "426300772833",
-    appId: "1:426300772833:web:f45edf4ab4bca98bd382a0"
+    apiKey: "AIzaSyBFI-PkseA6TatSwDs68kgT0nY8v2N-uq4",
+    authDomain: "party-c1f42.firebaseapp.com",
+    databaseURL: "https://party-c1f42.firebaseio.com",
+    projectId: "party-c1f42",
+    storageBucket: "party-c1f42.appspot.com",
+    messagingSenderId: "912849678726",
+    appId: "1:912849678726:web:ae3b595076af7355c87c07",
+    measurementId: "G-5MD1BV07ND"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
+  // Generate a reference to a new location and add some data using push()
+  var video = newPostRef.key;
+
+
+
   function writeUserData(video) {
-    firebase.database().ref().set({
+    firebase.database().ref().push({
       video
     });
   }
+
+
   function pause(){
     
     video.status='pause';
